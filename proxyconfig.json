@@ -1,0 +1,14 @@
+{
+  "/authenticate": {
+    "target": "http://10.0.0.244:9999",
+    "secure": false
+  },
+  "/title": {
+    "target": "http://10.0.0.244:9999",
+    "secure": false
+  },
+  "/api": {
+    "target": "http://10.0.0.244:9999",
+    "secure": false
+  }
+}

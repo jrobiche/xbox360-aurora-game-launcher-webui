@@ -1,0 +1,20 @@
+<div class="responsive-layout-grid-wrapper">
+  <mat-card class="centered">
+    <div class="card-content-wrapper">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <form #testForm="ngForm" (ngSubmit)="onClickSubmit(testForm.value)">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput ngModel type="text" name="username" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput ngModel type="password" name="password" />
+          </mat-form-field>
+          <button mat-stroked-button type="submit">Submit</button>
+        </form>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>

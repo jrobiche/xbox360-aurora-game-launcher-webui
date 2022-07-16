@@ -1,0 +1,30 @@
+.mat-card {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.mat-card-title {
+  margin-top: 16px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+::ng-deep .mat-snack-bar-container {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #424242;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-content-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}

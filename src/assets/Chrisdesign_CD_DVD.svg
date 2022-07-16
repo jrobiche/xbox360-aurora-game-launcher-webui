@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://web.resource.org/cc/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 327.06 323.64" version="1.0">
+  <defs id="defs4">
+    <filter id="filter11193" y="-.10228" width="1.6059" height="1.2046" x="-.30296">
+      <feGaussianBlur id="feGaussianBlur11195" stdDeviation="18.143585"/>
+    </filter>
+    <filter id="filter11189" y="-.10558" width="1.3552" height="1.2112" x="-.17762">
+      <feGaussianBlur id="feGaussianBlur11191" stdDeviation="18.143585"/>
+    </filter>
+    <filter id="filter11185" y="-.12123" width="1.2641" height="1.2425" x="-.13204">
+      <feGaussianBlur id="feGaussianBlur11187" stdDeviation="18.143585"/>
+    </filter>
+    <filter id="filter11181" y="-.15457" width="1.2172" height="1.3091" x="-.1086">
+      <feGaussianBlur id="feGaussianBlur11183" stdDeviation="18.143585"/>
+    </filter>
+    <clipPath id="clipPath4248" clipPathUnits="userSpaceOnUse">
+      <path id="path4250" opacity=".79008" d="m372.84 260.94c-117.49 0-212.84 95.34-212.84 212.84s95.35 212.88 212.84 212.88c117.5 0 212.88-95.38 212.88-212.88s-95.38-212.84-212.88-212.84zm0 160c29.18 0 52.88 23.66 52.88 52.84s-23.7 52.88-52.88 52.88c-29.17 0-52.84-23.7-52.84-52.88s23.67-52.84 52.84-52.84z" style="color:#000000" fill="#666"/>
+    </clipPath>
+    <clipPath id="clipPath4244" clipPathUnits="userSpaceOnUse">
+      <path id="path4246" opacity=".79008" d="m372.84 260.94c-117.49 0-212.84 95.34-212.84 212.84s95.35 212.88 212.84 212.88c117.5 0 212.88-95.38 212.88-212.88s-95.38-212.84-212.88-212.84zm0 160c29.18 0 52.88 23.66 52.88 52.84s-23.7 52.88-52.88 52.88c-29.17 0-52.84-23.7-52.84-52.88s23.67-52.84 52.84-52.84z" style="color:#000000" fill="#666"/>
+    </clipPath>
+    <clipPath id="clipPath4240" clipPathUnits="userSpaceOnUse">
+      <path id="path4242" opacity=".79008" d="m372.84 260.94c-117.49 0-212.84 95.34-212.84 212.84s95.35 212.88 212.84 212.88c117.5 0 212.88-95.38 212.88-212.88s-95.38-212.84-212.88-212.84zm0 160c29.18 0 52.88 23.66 52.88 52.84s-23.7 52.88-52.88 52.88c-29.17 0-52.84-23.7-52.84-52.88s23.67-52.84 52.84-52.84z" style="color:#000000" fill="#666"/>
+    </clipPath>
+    <clipPath id="clipPath4236" clipPathUnits="userSpaceOnUse">
+      <path id="path4238" opacity=".79008" d="m372.84 260.94c-117.49 0-212.84 95.34-212.84 212.84s95.35 212.88 212.84 212.88c117.5 0 212.88-95.38 212.88-212.88s-95.38-212.84-212.88-212.84zm0 160c29.18 0 52.88 23.66 52.88 52.84s-23.7 52.88-52.88 52.88c-29.17 0-52.84-23.7-52.84-52.88s23.67-52.84 52.84-52.84z" style="color:#000000" fill="#666"/>
+    </clipPath>
+    <clipPath id="clipPath4232" clipPathUnits="userSpaceOnUse">
+      <path id="path4234" opacity=".79008" d="m372.84 260.94c-117.49 0-212.84 95.34-212.84 212.84s95.35 212.88 212.84 212.88c117.5 0 212.88-95.38 212.88-212.88s-95.38-212.84-212.88-212.84zm0 160c29.18 0 52.88 23.66 52.88 52.84s-23.7 52.88-52.88 52.88c-29.17 0-52.84-23.7-52.84-52.88s23.67-52.84 52.84-52.84z" style="color:#000000" fill="#666"/>
+    </clipPath>
+    <linearGradient id="linearGradient5241">
+      <stop id="stop5243" stop-color="#7c7c7c" offset="0"/>
+      <stop id="stop5245" stop-color="#c6c6c6" offset="1"/>
+    </linearGradient>
+    <linearGradient id="linearGradient3280" y2="521.38" xlink:href="#linearGradient5241" spreadMethod="reflect" gradientUnits="userSpaceOnUse" x2="-3.5969" gradientTransform="translate(235.87 -28.363)" y1="514.97" x1="-73.263"/>
+    <linearGradient id="linearGradient3282" y2="521.38" xlink:href="#linearGradient5241" spreadMethod="reflect" gradientUnits="userSpaceOnUse" x2="-3.5969" gradientTransform="translate(241.36 -29.278)" y1="514.97" x1="-73.263"/>
+    <linearGradient id="linearGradient3284" y2="368.66" spreadMethod="reflect" gradientUnits="userSpaceOnUse" x2="213.74" y1="473.8" x1="390.2">
+      <stop id="stop7187" stop-color="#6f6f6f" offset="0"/>
+      <stop id="stop7189" stop-color="#f5f5f5" offset="1"/>
+    </linearGradient>
+  </defs>
+  <g id="layer1" transform="translate(-89.645 -116.55)">
+    <g id="g2267" transform="matrix(.74601 0 0 .74601 -31.657 -84.297)">
+      <path id="path4252" stroke-linejoin="round" style="color:#000000" d="m379.05 273.75c-117.5 0-212.85 95.35-212.85 212.84 0 117.5 95.35 212.88 212.85 212.88 117.49 0 212.87-95.38 212.87-212.88 0-117.49-95.38-212.84-212.87-212.84zm0 160c29.17 0 52.87 23.67 52.87 52.84 0 29.18-23.7 52.88-52.87 52.88-29.18 0-52.85-23.7-52.85-52.88 0-29.17 23.67-52.84 52.85-52.84z" stroke="url(#linearGradient3280)" stroke-width="7.2" fill="none"/>
+      <path id="path4254" stroke-linejoin="round" style="color:#000000" d="m384.54 272.83c-117.5 0-212.85 95.35-212.85 212.85 0 117.49 95.35 212.87 212.85 212.87 117.49 0 212.87-95.38 212.87-212.87 0-117.5-95.38-212.85-212.87-212.85zm0 160c29.17 0 52.87 23.67 52.87 52.85 0 29.17-23.7 52.87-52.87 52.87-29.18 0-52.85-23.7-52.85-52.87 0-29.18 23.67-52.85 52.85-52.85z" stroke="url(#linearGradient3282)" stroke-width="7.2" fill="none"/>
+      <path id="path2160" style="color:#000000" d="m372.84 260.94c-117.49 0-212.84 95.34-212.84 212.84s95.35 212.88 212.84 212.88c117.5 0 212.88-95.38 212.88-212.88s-95.38-212.84-212.88-212.84zm0 160c29.18 0 52.88 23.66 52.88 52.84s-23.7 52.88-52.88 52.88c-29.17 0-52.84-23.7-52.84-52.88s23.67-52.84 52.84-52.84z" clip-path="url(#clipPath4248)" transform="translate(8.9468 11.896)" fill="url(#linearGradient3284)"/>
+      <path id="rect3138" opacity=".27099" style="color:#000000" d="m328.93 254.86l41.51 216.98 87.63 202.8-45.85 14.1-41.52-216.98-87.63-202.8 45.86-14.1z" clip-path="url(#clipPath4244)" transform="matrix(.99712 .075845 -.075845 .99712 45.949 -14.845)" filter="url(#filter11193)" fill="#f00"/>
+      <path id="path4112" opacity=".27099" style="color:#000000" d="m293.55 264.71l76.9 207.15 120.65 185.11-43.51 21.91-76.9-207.14-120.65-185.12 43.51-21.91z" clip-path="url(#clipPath4240)" transform="matrix(.99994 -.011097 .011097 .99994 3.7343 16.037)" filter="url(#filter11189)" fill="#ff0"/>
+      <path id="path4114" opacity=".27099" style="color:#000000" d="m260.93 279.9l109.53 191.98 149.02 163.06-38.27 28.02-110.53-191.24-150.01-162.32 40.26-29.5z" clip-path="url(#clipPath4236)" transform="matrix(.99501 -.099730 .099730 .99501 -36.224 51.154)" filter="url(#filter11185)" fill="#0f0"/>
+      <path id="path4116" opacity=".27099" style="color:#000000" d="m233.04 298.24l137.44 173.66 176.43 133.56-37.83 38.89-138.41-172.65-177.4-132.56 39.77-40.9z" clip-path="url(#clipPath4232)" transform="matrix(.97849 -.20631 .20631 .97849 -80.326 98.389)" filter="url(#filter11181)" fill="#00f"/>
+      <path id="path2165" opacity=".38931" stroke-linejoin="round" style="color:#000000" d="m471.43 480.93a74.286 74.286 0 1 1 -148.57 0 74.286 74.286 0 1 1 148.57 0z" transform="matrix(.88601 0 0 .88601 29.475 60.037)" stroke="#d2d2d2" stroke-width="20" fill="none"/>
+    </g>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>CD / DVD</dc:title>
+        <dc:date>2008-03-24T21:09:50</dc:date>
+        <dc:description>clip art, clipart, disc, disc, dvd, dvd, icon, icon, image, jpg, media, music, music, player, player, public domain, recording, recording, svg, </dc:description>
+        <dc:source>http://openclipart.org/detail/15989/cd-/-dvd-by-chrisdesign</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Chrisdesign</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>disc</rdf:li>
+            <rdf:li>dvd</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>jpg</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>music</rdf:li>
+            <rdf:li>player</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>recording</rdf:li>
+            <rdf:li>svg</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

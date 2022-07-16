@@ -1,0 +1,68 @@
+<div class="responsive-layout-grid-wrapper">
+  <mat-menu #filterMenu="matMenu" xPosition="before">
+    <button
+      mat-menu-item
+      *ngFor="let contentGroup of contentGroups"
+      (click)="setContentGroup(contentGroup)"
+    >
+      {{ contentGroup.name }}
+    </button>
+  </mat-menu>
+  <mat-card>
+    <button
+      mat-icon-button
+      aria-label="Filter Game List"
+      [matMenuTriggerFor]="filterMenu"
+      class="filter-games-button"
+    >
+      <mat-icon>filter_list</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      aria-label="Credits"
+      class="credits-button"
+      (click)="openDialog()"
+    >
+      <mat-icon>copyright</mat-icon>
+    </button>
+    <mat-card-title>{{ contentGroup.name }} Games</mat-card-title>
+    <mat-card-subtitle>{{ gameListFiltered.length }} Titles</mat-card-subtitle>
+    <mat-selection-list
+      #gamesList
+      [multiple]="false"
+      (selectionChange)="selectGame($event)"
+    >
+      <cdk-virtual-scroll-viewport itemSize="76" class="gamelist-viewport">
+        <mat-divider></mat-divider>
+        <mat-list-option
+          *cdkVirtualFor="let game of gameListFiltered"
+          [value]="game"
+        >
+          <img
+            matListAvatar
+            src="{{
+              !!game.art.tile ? game.art.tile : '/assets/Chrisdesign_CD_DVD.svg'
+            }}"
+            alt="{{ !!game.titleName ? game.titleName : 'Missing' }} Tile Art"
+          />
+          <div mat-line>
+            {{ game.titleName }}
+          </div>
+          <!-- <div mat-line style="color: #9f9f9f"> -->
+          <!--   {{ game.directory }}\{{ game.executable }} -->
+          <!-- </div> -->
+          <mat-divider></mat-divider>
+        </mat-list-option>
+      </cdk-virtual-scroll-viewport>
+    </mat-selection-list>
+    <button
+      color="primary"
+      mat-flat-button
+      (click)="launchTitle(game!)"
+      [disabled]="game === null"
+      class="launch-game-button"
+    >
+      {{ !!game?.titleName ? "Launch " + game?.titleName : "Select a Game" }}
+    </button>
+  </mat-card>
+</div>
