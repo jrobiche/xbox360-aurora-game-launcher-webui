@@ -23,7 +23,12 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { CreditsDialogComponent } from './components/credits-dialog/credits-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, GamesPageComponent, LoginPageComponent, CreditsDialogComponent],
+  declarations: [
+    AppComponent,
+    GamesPageComponent,
+    LoginPageComponent,
+    CreditsDialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

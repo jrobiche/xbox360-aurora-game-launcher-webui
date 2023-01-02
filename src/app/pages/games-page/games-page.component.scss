@@ -1,45 +1,45 @@
-$list-option-tile-size: 64px;
+@import "../../../variables";
+
 $list-option-tile-margin: 6px;
-$launch-button-height: 64px;
+$list-option-tile-size: 64px;
+
 $card-height: calc(
-  100% - 32px - 16px - 16px
+  100% - 64px
 ); // 2 * 16px padding, 16px margin-top, 16px margin-bottom
 
 .mat-card {
   border-radius: 6px;
-  color: white;
-  margin-top: 16px;
   height: $card-height;
+  margin-top: 16px;
+
+  .mat-divider-horizontal {
+    left: 8px;
+    width: calc(100% - 16px);
+  }
 }
 
 .mat-card-title {
-  height: 34px; // margin-top: -4px, margin-bottom: 8px
+  height: 34px;
   width: calc(100% - 40px - 40px);
 }
 
 .mat-card-subtitle {
-  height: 20px; // margin-top: -4px, margin-bottom: 16px
+  height: 20px;
   width: calc(100% - 40px - 40px);
-}
-
-.mat-card .mat-divider-horizontal {
-  width: calc(100% - 16px);
-  left: 8px;
 }
 
 .mat-selection-list {
   // title: 34px - 4px + 8px = 38px
   // subtitle: 20px - 4px + 16px = 32px
   // launch button: 64px + 16px + 16px = 96px
-  height: calc(100% - 38px - 32px - 96px);
+  height: calc(100% - 166px);
 }
 
 .mat-list-base .mat-list-option {
-  // height must equal cdk-virtual-scroll-viewport itemSize
-  height: calc($list-option-tile-size + (2 * $list-option-tile-margin));
   font-size: 18px;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.87);
+  // height must equal cdk-virtual-scroll-viewport itemSize
+  height: calc($list-option-tile-size + (2 * $list-option-tile-margin));
 }
 
 ::ng-deep
@@ -64,8 +64,12 @@ $card-height: calc(
 
 .mat-list-option[aria-selected="true"],
 .mat-list-item.mat-selected {
+  background: radial-gradient(
+    at -10% -10%,
+    lighten($primary-color, 5%),
+    darken($primary-color, 10%)
+  );
   border-radius: 8px;
-  background: radial-gradient(at -10% -10%, lighten(green, 10%), green);
 }
 
 .mat-list-base .mat-list-item .mat-list-avatar,
@@ -73,13 +77,8 @@ $card-height: calc(
 .mat-list-base .mat-list-item .mat-list-icon,
 .mat-list-base .mat-list-option .mat-list-icon {
   border-radius: 0;
-  width: $list-option-tile-size;
   height: $list-option-tile-size;
-}
-
-::ng-deep .mat-snack-bar-container {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #424242;
+  width: $list-option-tile-size;
 }
 
 .responsive-layout-grid-wrapper {
@@ -105,15 +104,19 @@ $card-height: calc(
 }
 
 .launch-game-button {
-  width: 80%;
-  margin-left: calc(10% - 16px);
-  height: 64px;
-  position: absolute;
+  background: radial-gradient(
+    at -10% -10%,
+    lighten($primary-color, 5%),
+    darken($primary-color, 10%)
+  );
   bottom: 16px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 18px;
   font-weight: bold;
-  background: radial-gradient(at -10% -10%, lighten(green, 10%), green);
+  height: 64px;
+  margin-left: calc(10% - 16px);
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80%;
 }
