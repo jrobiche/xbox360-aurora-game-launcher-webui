@@ -3,7 +3,7 @@
     <div class="card-content-wrapper">
       <mat-card-title>Login</mat-card-title>
       <mat-card-content>
-        <form #testForm="ngForm" (ngSubmit)="onClickSubmit(testForm.value)">
+        <form #loginForm="ngForm" (ngSubmit)="onClickSubmit(loginForm.value)">
           <mat-form-field appearance="fill">
             <mat-label>Username</mat-label>
             <input matInput ngModel type="text" name="username" />

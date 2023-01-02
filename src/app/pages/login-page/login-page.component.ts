@@ -11,35 +11,24 @@ import { ApiService } from '../../services/api.service';
 })
 export class LoginPageComponent implements OnInit {
   constructor(
-    private router: Router,
-    private _snackBar: MatSnackBar,
-    private apiService: ApiService
+    private _apiService: ApiService,
+    private _router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
-  ngOnInit(): void {
-    if (this.apiService.autologin) {
-      this.router.navigate(['/']);
+  ngOnInit(): void {}
+
+  async onClickSubmit(formData: any): Promise<void> {
+    let result = await this._apiService.login(
+      formData.username,
+      formData.password
+    );
+    if (result) {
+      this._router.navigate(['/']);
+    } else {
+      this._snackBar.open('Login failed', 'CLOSE', {
+        duration: 5000,
+      });
     }
-  }
-
-  openSnackBar(message: string, action: string, duration: number) {
-    this._snackBar.open(message, action, {
-      duration: duration * 1000,
-    });
-  }
-
-  onClickSubmit(formData: any): void {
-    this.apiService
-      .authenticate(formData.username, formData.password)
-      .subscribe(
-        (response: any) => {
-          this.apiService.setToken(response.token);
-          this.router.navigate(['/']);
-        },
-        (error: any) => {
-          console.error('Login failed:', error);
-          this.openSnackBar('Login failed', '', 2);
-        }
-      );
   }
 }

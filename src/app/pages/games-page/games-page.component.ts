@@ -44,12 +44,13 @@ export class GamesPageComponent implements OnInit {
   game: Game | null;
   gameListAll: Game[];
   gameListFiltered: Game[];
+  homeTitle: Game | null;
 
   constructor(
     public dialog: MatDialog,
-    private router: Router,
-    private _snackBar: MatSnackBar,
-    private apiService: ApiService
+    private _apiService: ApiService,
+    private _router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.contentGroups = [
       {
@@ -69,45 +70,74 @@ export class GamesPageComponent implements OnInit {
         name: 'Indie',
       },
       {
-        group: CustomContentGroup.OGXbox,
-        name: 'OG Xbox',
-      },
-      {
         group: CustomContentGroup.Homebrew,
         name: 'Homebrew',
+      },
+      {
+        group: CustomContentGroup.OGXbox,
+        name: 'OG Xbox',
       },
     ];
     this.contentGroup = this.contentGroups[0];
     this.game = null;
     this.gameListAll = [];
     this.gameListFiltered = [];
+    this.homeTitle = null;
   }
 
   ngOnInit(): void {
-    if (this.apiService.isAuthenticated()) {
-      this.getTitles();
-      return;
-    }
+    // get plugin information and redirect to /login if unauthorized
+    this._apiService.getPlugin().subscribe(
+      (response: any) => {
+        let pathSplitIndex = response.path.launcher.lastIndexOf('\\');
+        let directory = response.path.launcher.substr(0, pathSplitIndex);
+        let executable = response.path.launcher.substr(pathSplitIndex + 1);
+        let executableType = 2; // xbox 360 container
+        if (executable.endsWith('.xex')) {
+          executableType = 0; // xbox 360 executable
+        }
+        this.homeTitle = {
+          art: {
+            background: '',
+            banner: '',
+            boxartLarge: '',
+            boxartSmall: '',
+            screenshots: [],
+            tile: '',
+          },
+          contentGroup: 5,
+          directory: directory,
+          executable: executable,
+          fileUrls: [],
+          hidden: false,
+          titleName: 'Aurora',
+          type: 0,
+        };
+      },
+      (error: any) => {
+        if (error.status == 401) {
+          this._router.navigate(['/login']);
+        } else {
+          console.error(
+            'Failed to get plugin information. Got the following error:',
+            error
+          );
+          this._snackBar.open('Failed to get plugin information', 'CLOSE', {
+            duration: 5000,
+          });
+        }
+      }
+    );
 
-    if (this.apiService.autologin) {
-      this.apiService.autoLogin();
-      this.getTitles();
-      return;
-    }
-
-    this.router.navigate(['/login']);
-  }
-
-  private getTitles(): void {
-    this.apiService.getTitles().subscribe(
+    // get list of titles
+    this._apiService.getTitles().subscribe(
       (response: Array<Game>) => {
         // filter out hidden games
-        let gameListAll = response.filter((game: Game) => {
+        let gameList = response.filter((game: Game) => {
           return !game.hidden;
         });
-
         // treat Unsigned, LibXenon, and Count as Homebrew
-        gameListAll.forEach((game: Game) => {
+        gameList.forEach((game: Game) => {
           if (
             game.contentGroup == AuroraContentGroup.Unsigned ||
             game.contentGroup == AuroraContentGroup.LibXenon ||
@@ -116,16 +146,23 @@ export class GamesPageComponent implements OnInit {
             game.contentGroup = CustomContentGroup.Homebrew;
           }
         });
-
         // sort by game title name
-        gameListAll = gameListAll.sort(this.compareGameTitleNames);
-
-        this.gameListAll = gameListAll;
+        gameList = gameList.sort(this.compareGameTitleNames);
+        this.gameListAll = gameList;
         this.filterGamesByContentGroup();
       },
       (error: any) => {
-        console.error('Failed to get game list:', error);
-        this.openSnackBar('Failed to get game list', '', 4);
+        if (error.status == 401) {
+          this._router.navigate(['/login']);
+        } else {
+          console.error(
+            'Failed to get game list. Got the following error:',
+            error
+          );
+          this._snackBar.open('Failed to get game list', 'CLOSE', {
+            duration: 5000,
+          });
+        }
       }
     );
   }
@@ -153,22 +190,28 @@ export class GamesPageComponent implements OnInit {
   }
 
   launchTitle(game: Game) {
-    this.apiService.titleLaunch(game).subscribe(
-      (response: any) => {},
+    this._apiService.launchTitle(game).subscribe(
+      (response: any) => {
+        return;
+      },
       (error: any) => {
-        console.error('Error launching title:', error);
+        if (error.status == 401) {
+          this._router.navigate(['/login']);
+        } else {
+          console.error(
+            'Failed to launch title. Got the following error:',
+            error
+          );
+          this._snackBar.open('Failed to launch title', 'CLOSE', {
+            duration: 5000,
+          });
+        }
       }
     );
   }
 
-  openDialog(): void {
+  openCreditsDialog(): void {
     const dialogRef = this.dialog.open(CreditsDialogComponent);
-  }
-
-  openSnackBar(message: string, action: string, duration: number): void {
-    this._snackBar.open(message, action, {
-      duration: duration * 1000,
-    });
   }
 
   selectGame(e: any): void {
