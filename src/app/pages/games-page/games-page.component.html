@@ -1,38 +1,51 @@
 <div class="responsive-layout-grid-wrapper">
-  <mat-menu #filterMenu="matMenu" xPosition="before">
-    <button
-      mat-menu-item
-      *ngFor="let contentGroup of contentGroups"
-      (click)="setContentGroup(contentGroup)"
-    >
-      {{ contentGroup.name }}
-    </button>
-  </mat-menu>
   <mat-card>
-    <button
-      mat-icon-button
-      aria-label="Filter Game List"
-      [matMenuTriggerFor]="filterMenu"
-      class="filter-games-button"
-    >
-      <mat-icon>filter_list</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      aria-label="Credits"
-      class="credits-button"
-      (click)="openDialog()"
-    >
-      <mat-icon>copyright</mat-icon>
-    </button>
-    <mat-card-title>{{ contentGroup.name }} Games</mat-card-title>
-    <mat-card-subtitle>{{ gameListFiltered.length }} Titles</mat-card-subtitle>
-    <mat-selection-list
-      #gamesList
-      [multiple]="false"
-      (selectionChange)="selectGame($event)"
-    >
-      <cdk-virtual-scroll-viewport itemSize="76" class="gamelist-viewport">
+    <div class="header-row">
+      <div>
+        <mat-card-title>{{ contentGroup.name }} Games</mat-card-title>
+        <mat-card-subtitle
+          >{{ gameListFiltered.length }} Titles</mat-card-subtitle
+        >
+      </div>
+      <span class="header-spacer"></span>
+      <button
+        mat-icon-button
+        (click)="openCreditsDialog()"
+        aria-label="Open Credits Dialog"
+      >
+        <mat-icon>copyright</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        *ngIf="homeTitle !== null"
+        (click)="launchTitle(homeTitle)"
+        aria-label="Launch Home Title"
+      >
+        <mat-icon>home</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="filterMenu"
+        aria-label="Filter Game List"
+      >
+        <mat-icon>filter_list</mat-icon>
+      </button>
+      <mat-menu #filterMenu="matMenu" xPosition="before">
+        <button
+          mat-menu-item
+          *ngFor="let contentGroup of contentGroups"
+          (click)="setContentGroup(contentGroup)"
+        >
+          {{ contentGroup.name }}
+        </button>
+      </mat-menu>
+    </div>
+    <cdk-virtual-scroll-viewport itemSize="76" class="gamelist-viewport">
+      <mat-selection-list
+        #gamesList
+        (selectionChange)="selectGame($event)"
+        [multiple]="false"
+      >
         <mat-divider></mat-divider>
         <mat-list-option
           *cdkVirtualFor="let game of gameListFiltered"
@@ -40,27 +53,24 @@
         >
           <img
             matListAvatar
+            alt="{{ !!game.titleName ? game.titleName : 'Missing' }} Tile Art"
             src="{{
               !!game.art.tile ? game.art.tile : '/assets/Chrisdesign_CD_DVD.svg'
             }}"
-            alt="{{ !!game.titleName ? game.titleName : 'Missing' }} Tile Art"
           />
           <div mat-line>
             {{ game.titleName }}
           </div>
-          <!-- <div mat-line style="color: #9f9f9f"> -->
-          <!--   {{ game.directory }}\{{ game.executable }} -->
-          <!-- </div> -->
           <mat-divider></mat-divider>
         </mat-list-option>
-      </cdk-virtual-scroll-viewport>
-    </mat-selection-list>
+      </mat-selection-list>
+    </cdk-virtual-scroll-viewport>
     <button
-      color="primary"
       mat-flat-button
       (click)="launchTitle(game!)"
       [disabled]="game === null"
       class="launch-game-button"
+      color="primary"
     >
       {{ !!game?.titleName ? "Launch " + game?.titleName : "Select a Game" }}
     </button>

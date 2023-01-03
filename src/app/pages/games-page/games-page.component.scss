@@ -1,46 +1,4 @@
-$list-option-tile-size: 64px;
-$list-option-tile-margin: 6px;
-$launch-button-height: 64px;
-$card-height: calc(
-  100% - 32px - 16px - 16px
-); // 2 * 16px padding, 16px margin-top, 16px margin-bottom
-
-.mat-card {
-  border-radius: 6px;
-  color: white;
-  margin-top: 16px;
-  height: $card-height;
-}
-
-.mat-card-title {
-  height: 34px; // margin-top: -4px, margin-bottom: 8px
-  width: calc(100% - 40px - 40px);
-}
-
-.mat-card-subtitle {
-  height: 20px; // margin-top: -4px, margin-bottom: 16px
-  width: calc(100% - 40px - 40px);
-}
-
-.mat-card .mat-divider-horizontal {
-  width: calc(100% - 16px);
-  left: 8px;
-}
-
-.mat-selection-list {
-  // title: 34px - 4px + 8px = 38px
-  // subtitle: 20px - 4px + 16px = 32px
-  // launch button: 64px + 16px + 16px = 96px
-  height: calc(100% - 38px - 32px - 96px);
-}
-
-.mat-list-base .mat-list-option {
-  // height must equal cdk-virtual-scroll-viewport itemSize
-  height: calc($list-option-tile-size + (2 * $list-option-tile-margin));
-  font-size: 18px;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.87);
-}
+@import "../../../variables";
 
 ::ng-deep
   .cdk-virtual-scroll-orientation-vertical
@@ -48,8 +6,100 @@ $card-height: calc(
   width: 100%;
 }
 
+.gamelist-viewport {
+  // title: 34px - 4px + 8px = 38px
+  // subtitle: 20px - 4px + 16px = 32px
+  // launch button: 64px + 16px + 16px = 96px
+  // 38px + 32px + 96px = 166px
+  height: calc(100% - 166px);
+  width: 100%;
+}
+
+.header-row {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  padding-left: 8px;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+.launch-game-button {
+  background: radial-gradient(
+    at -10% -10%,
+    lighten($primary-color, 5%),
+    darken($primary-color, 10%)
+  );
+  bottom: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  height: 64px;
+  // width of button is 80%
+  // so margin on left side is 10% (half of the remaining 20%)
+  // then subtract 16px but the button is already moved 16 pixels to the right because of the card's padding
+  margin-left: calc(10% - 16px);
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80%;
+}
+
+.mat-card {
+  border-radius: 6px;
+  // 16px margin-top, 16px padding-top, 16px padding-bottom, 16px margin-bottom
+  height: calc(100% - 64px);
+  margin-top: 16px;
+
+  .mat-card-subtitle {
+    height: 20px;
+    margin-bottom: 0;
+  }
+
+  .mat-card-title {
+    height: 34px;
+  }
+
+  .mat-divider-horizontal {
+    margin-left: 8px;
+    width: calc(100% - 16px);
+  }
+}
+
 ::ng-deep .mat-list-base .mat-list-item .mat-list-item-ripple,
 ::ng-deep .mat-list-base .mat-list-option .mat-list-item-ripple {
+  border-radius: 8px;
+}
+
+.mat-list-base .mat-list-item .mat-list-avatar,
+.mat-list-base .mat-list-option .mat-list-avatar,
+.mat-list-base .mat-list-item .mat-list-icon,
+.mat-list-base .mat-list-option .mat-list-icon {
+  border-radius: 0;
+  height: 64px;
+  width: 64px;
+}
+
+.mat-list-base .mat-list-option {
+  font-size: 18px;
+  font-weight: bold;
+  // height must equal cdk-virtual-scroll-viewport itemSize
+  height: 76px;
+}
+
+.mat-list-option[aria-selected="true"],
+.mat-list-item.mat-selected {
+  background: radial-gradient(
+    at -10% -10%,
+    lighten($primary-color, 5%),
+    darken($primary-color, 10%)
+  );
   border-radius: 8px;
 }
 
@@ -62,58 +112,7 @@ $card-height: calc(
   border-radius: 8px;
 }
 
-.mat-list-option[aria-selected="true"],
-.mat-list-item.mat-selected {
-  border-radius: 8px;
-  background: radial-gradient(at -10% -10%, lighten(green, 10%), green);
-}
-
-.mat-list-base .mat-list-item .mat-list-avatar,
-.mat-list-base .mat-list-option .mat-list-avatar,
-.mat-list-base .mat-list-item .mat-list-icon,
-.mat-list-base .mat-list-option .mat-list-icon {
-  border-radius: 0;
-  width: $list-option-tile-size;
-  height: $list-option-tile-size;
-}
-
-::ng-deep .mat-snack-bar-container {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #424242;
-}
-
 .responsive-layout-grid-wrapper {
   height: 100%;
   overflow: auto;
-}
-
-.credits-button {
-  float: right;
-  height: 40px;
-  width: 40px;
-}
-
-.filter-games-button {
-  float: right;
-  height: 40px;
-  width: 40px;
-}
-
-.gamelist-viewport {
-  height: 100%;
-  width: 100%;
-}
-
-.launch-game-button {
-  width: 80%;
-  margin-left: calc(10% - 16px);
-  height: 64px;
-  position: absolute;
-  bottom: 16px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 18px;
-  font-weight: bold;
-  background: radial-gradient(at -10% -10%, lighten(green, 10%), green);
 }
